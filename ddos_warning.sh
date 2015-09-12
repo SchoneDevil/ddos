@@ -12,7 +12,7 @@
 # config section start
 interface=eth0
 dumpdir=/tmp/
-email=loeken@internetz.me
+email=your.em@il.org
 subject="ddos detected on `hostname`"
 sender="`hostname`"
 # config section end
