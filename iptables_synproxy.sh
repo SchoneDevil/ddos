@@ -103,13 +103,13 @@ iptables -t raw -I PREROUTING -i $DEV -p tcp -m tcp --syn \
 # Catching state
 #  UNTRACKED == SYN packets
 #  INVALID   == ACK from 3WHS
-iptables -A FORWARD -i $DEV -p tcp -m tcp --dport $PORT \
+iptables -A INPUT -i $DEV -p tcp -m tcp --dport $PORT \
     -m state --state INVALID,UNTRACKED \
     -j SYNPROXY --sack-perm --timestamp --wscale 7 --mss 1460
 
 # Drop rest of state INVALID
 #  This will e.g. catch SYN-ACK packet attacks
-iptables -A FORWARD -i $DEV -p tcp -m tcp --dport $PORT \
+iptables -A INPUT -i $DEV -p tcp -m tcp --dport $PORT \
     -m state --state INVALID -j DROP
 
 # More strict conntrack handling to get unknown ACKs (from 3WHS) to be
