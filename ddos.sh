@@ -11,7 +11,7 @@ interface=eth0
 dumpdir=/tmp/
 email=your@email.com
 subject="ddos detected on `hostname`"
-sender="fsociety"
+sender="`hostname`"
 
 while /bin/true; do
 	 pkt_old=`grep $interface: /proc/net/dev | cut -d : -f2 | awk '{ print $2 }'`
