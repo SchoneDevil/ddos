@@ -9,7 +9,7 @@
 
 interface=eth0
 dumpdir=/tmp/
-email=loeken@internetz.me
+email=youremail@internetz.me
 subject="ddos detected on `hostname`"
 sender="`hostname`"
 pkg_treshhold=100000
